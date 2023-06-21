@@ -1,0 +1,16 @@
+.title {
+  margin: 0;
+  margin-bottom: 15px;
+  margin-left: 10px;
+}
+.statList {
+  display: flex;
+}
+.statList li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50px;
+  padding: 10px 5px;
+  gap: 7px;
+}
