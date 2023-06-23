@@ -1,39 +1,42 @@
 import PropTypes from 'prop-types';
-import css from './Profile.module.css';
+import {
+  ProfileCard,
+  Description,
+  Avatar,
+  UserName,
+  UserTag,
+  UserLocation,
+  Stats,
+  UserStat,
+  StatLabel,
+  StatQuantity,
+} from './Profile.styled';
 
-export const Profile = ({
-  username,
-  tag,
-  location,
-  avatar,
-  followers,
-  views,
-  likes,
-}) => {
+export const Profile = ({ username, tag, location, avatar, stats }) => {
   return (
-    <div className={css.profile}>
-      <div className={css.description}>
-        <img src={avatar} alt="User avatar" className={css.avatar} />
-        <p className={css.name}>{username}</p>
-        <p className={css.tag}>@{tag}</p>
-        <p className={css.location}>{location}</p>
-      </div>
+    <ProfileCard>
+      <Description>
+        <Avatar src={avatar} alt="User avatar" />
+        <UserName>{username}</UserName>
+        <UserTag>@{tag}</UserTag>
+        <UserLocation>{location}</UserLocation>
+      </Description>
 
-      <ul className={css.stats}>
-        <li>
-          <span className={css.label}>Followers</span>
-          <span className={css.quantity}>{followers}</span>
-        </li>
-        <li>
-          <span className={css.label}>Views</span>
-          <span className={css.quantity}>{views}</span>
-        </li>
-        <li>
-          <span className={css.label}>Likes</span>
-          <span className={css.quantity}>{likes}</span>
-        </li>
-      </ul>
-    </div>
+      <Stats>
+        <UserStat>
+          <StatLabel>Followers</StatLabel>
+          <StatQuantity>{stats.followers}</StatQuantity>
+        </UserStat>
+        <UserStat>
+          <StatLabel>Views</StatLabel>
+          <StatQuantity>{stats.views}</StatQuantity>
+        </UserStat>
+        <UserStat>
+          <StatLabel>Likes</StatLabel>
+          <StatQuantity>{stats.likes}</StatQuantity>
+        </UserStat>
+      </Stats>
+    </ProfileCard>
   );
 };
 
@@ -42,7 +45,9 @@ Profile.propTypes = {
   tag: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
-  followers: PropTypes.number.isRequired,
-  views: PropTypes.number.isRequired,
-  likes: PropTypes.number.isRequired,
-}
+  stats: PropTypes.shape({
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
+  }).isRequired,
+};
