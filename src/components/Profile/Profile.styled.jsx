@@ -27,18 +27,15 @@ export const UserName = styled.p`
   color: #454545;
   margin-bottom: 7px;
 `;
-
-export const UserTag = styled.p`
-  margin-bottom: 7px;
-  color: #919191;
-  font-size: 14px;
-  font-weight: 500;
-`;
 export const UserLocation = styled.p`
   color: #919191;
   font-size: 14px;
   font-weight: 500;
 `;
+
+export const UserTag = styled(UserLocation)`
+  margin-bottom: 7px;
+`
 
 export const Stats = styled.ul`
   display: flex;
@@ -72,14 +69,3 @@ export const StatQuantity = styled.span`
   color: #454545;
 `;
 
-// .name,
-// .tag {
-//   margin-bottom: 7px;
-// }
-
-// .tag,
-// .location {
-//   color: #919191;
-//   font-size: 14px;
-//   font-weight: 500;
-// }
